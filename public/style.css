@@ -91,6 +91,7 @@ header p {
     height: 100%;
     opacity: 0;
     cursor: pointer;
+    pointer-events: none;
 }
 
 .color-section {

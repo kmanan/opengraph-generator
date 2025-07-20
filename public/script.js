@@ -132,7 +132,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Click to browse functionality
-    dropZone.addEventListener('click', function() {
+    dropZone.addEventListener('click', function(e) {
+        // Prevent double-triggering by stopping if the click came from the file input
+        if (e.target === imageInput) {
+            return;
+        }
+        e.preventDefault();
         imageInput.click();
     });
 }); 
