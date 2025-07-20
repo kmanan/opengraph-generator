@@ -1,19 +1,20 @@
-# 📷 OpenGraph Generator
+# 📱 OpenGraph Image Resizer
 
-**Free tool to create perfect social media cards, favicons, and PWA icons for all platforms.**
+**Free tool to resize images for perfect social media dimensions, create favicons, and PWA icons for all platforms including iPhone and Android.**
 
 🌐 **Live Demo:** [https://opengraph.krytonlabs.com/](https://opengraph.krytonlabs.com/)
 
 ## ✨ Features
 
-- 🎯 **Perfect OpenGraph Images** - 1200×630px for Facebook, Twitter, LinkedIn
-- 📱 **Square Social Images** - 1200×1200px for Instagram, WhatsApp, Quora  
+- 🎯 **Perfect Social Media Resizing** - Facebook (1200×630px), Twitter, LinkedIn optimized
+- 📱 **Mobile Platform Support** - iPhone and Android optimized images
+- 📷 **Instagram & WhatsApp Ready** - Square 1200×1200px images  
 - 🔗 **Complete Favicon Set** - ICO, SVG, PNG (all sizes)
-- 📲 **PWA Ready** - Manifest files and app icons
+- 📲 **PWA & Mobile App Icons** - iOS and Android home screen icons
 - 🎨 **Drag & Drop Interface** - Modern, responsive UI
 - ⚡ **Instant ZIP Download** - All files generated in seconds
+- 🔒 **Privacy First** - No image storage, memory-only processing
 - 🛡️ **Production Ready** - Security middleware, rate limiting
-- 🚀 **Zero Dependencies** - Pure in-memory processing
 
 ## 🎯 What You Get
 
@@ -30,9 +31,10 @@ When you upload an image, you instantly get:
 - `favicon-32x32.png` - High-res browser icon
 - `apple-touch-icon.png` - 180×180px iOS icon
 
-### **PWA & App Icons**
-- `android-chrome-192x192.png` - Android home screen
-- `android-chrome-512x512.png` - PWA splash screen
+### **Mobile Platform Icons**
+- `apple-touch-icon.png` - 180×180px iPhone/iOS home screen icon
+- `android-chrome-192x192.png` - Android home screen icon
+- `android-chrome-512x512.png` - Android PWA splash screen
 - `manifest.webmanifest` - Progressive Web App manifest
 - `browserconfig.xml` - Windows tile configuration
 
@@ -52,8 +54,8 @@ When you upload an image, you instantly get:
 
 ```bash
 # Clone the repository
-git clone https://github.com/kmanan/opengraph-generator.git
-cd opengraph-generator
+git clone https://github.com/kmanan/opengraph-image-resizer.git
+cd opengraph-image-resizer
 
 # Install dependencies
 npm install
@@ -90,15 +92,15 @@ npm start
 
 ## 🏗️ Architecture
 
-### **Zero Server Storage Design**
-- All processing happens in memory buffers
-- No files stored on server disk
-- Automatic cleanup after download
-- Perfect for scalable deployments
+### **Privacy-First Design**
+- All image processing happens in memory buffers only
+- Zero file storage - images never saved to server disk
+- Automatic memory cleanup after download
+- Perfect for privacy-conscious users and scalable deployments
 
 ### **Processing Flow**
 ```
-Upload Image → Sharp Processing → Generate All Sizes → 
+Upload Image → Sharp Resizing → Generate All Platform Sizes → 
 Create ZIP Archive → Stream Download → Memory Cleanup
 ```
 
@@ -118,7 +120,7 @@ NODE_ENV=production         # Environment mode
 npm install -g pm2
 
 # Start the application
-pm2 start server.js --name "opengraph-generator"
+pm2 start server.js --name "opengraph-image-resizer"
 
 # Auto-start on server boot
 pm2 startup
@@ -191,11 +193,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - **Live Demo:** [https://opengraph.krytonlabs.com/](https://opengraph.krytonlabs.com/)
-- **GitHub:** [https://github.com/kmanan/opengraph-generator](https://github.com/kmanan/opengraph-generator)
+- **GitHub:** [https://github.com/kmanan/opengraph-image-resizer](https://github.com/kmanan/opengraph-image-resizer)
 - **Documentation:** See `/docs` folder for detailed guides
 
 ---
 
 **Made with ❤️ by [KrytonLabs](https://krytonlabs.com)**
 
-*Generate perfect social media cards in seconds!* 
+*Resize images for perfect social media dimensions in seconds!* 
