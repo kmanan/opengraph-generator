@@ -61,13 +61,24 @@
     <meta property="article:publisher" content="https://opengraph.krytonlabs.com/" />
     <link rel="canonical" href="https://opengraph.krytonlabs.com/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-22X852JLRD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-22X852JLRD');
+    </script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>📷 OpenGraph Generator</h1>
-            <p>Upload any image to generate perfect OpenGraph images and favicons for all platforms</p>
+        <header style="padding: 24px 40px !important;">
+            <h1 style="display: flex; align-items: center; justify-content: center; margin-bottom: 16px !important;"><img src="og-og/og-square.png" alt="Kryton Labs" style="width: 64px; height: 64px; margin-right: 16px;"> OpenGraph Generator</h1>
+            <p style="margin-bottom: 12px;">Upload any image to generate perfect OpenGraph images and favicons for all platforms</p>
+            <p style="font-size: 1rem; color: #ffffff; margin: 0; font-weight: 500; background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 6px; display: inline-block;">🔒 We don't save any of your images - everything is processed in memory</p>
         </header>
 
         <div class="upload-section">
@@ -133,6 +144,20 @@
             </div>
         </div>
     </div>
+
+    <footer style="text-align: center; padding: 32px 20px; margin-top: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div style="margin-bottom: 16px;">
+            <p style="margin: 0; font-size: 1.1em; font-weight: 500;">A Product by <a href="https://krytonlabs.com" target="_blank" style="color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3);">Kryton Labs</a></p>
+        </div>
+        <div style="font-size: 0.9em; opacity: 0.9; line-height: 1.5;">
+            <p style="margin: 0;">Built with open source: 
+            <a href="https://github.com/lovell/sharp" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none;">Sharp</a> • 
+            <a href="https://github.com/archiverjs/node-archiver" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none;">Archiver</a> • 
+            <a href="https://github.com/expressjs/express" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none;">Express</a> • 
+            <a href="https://github.com/expressjs/multer" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none;">Multer</a> • 
+            <a href="https://github.com/kevva/to-ico" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none;">to-ico</a></p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
