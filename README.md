@@ -24,7 +24,12 @@ Then in any project:
 
 > "Generate OG assets and favicons from `./assets/logo.png`, drop them in `./public`, and wire up the meta tags in `index.html`."
 
-Claude calls the MCP, the MCP calls the hosted backend, the assets land in your project. Defaults to the hosted backend; set `OPENGRAPH_BACKEND` env var to point at your own self-hosted instance.
+Claude calls the MCP, the MCP calls the hosted backend, the assets land in your project. Defaults to the hosted backend; point it at your own self-hosted instance with:
+
+```bash
+claude mcp add -e OPENGRAPH_BACKEND=http://localhost:6736 \
+  opengraph -- npx -y @krytonlabs/opengraph-mcp
+```
 
 ### 3. Self-host with Docker
 

@@ -369,8 +369,8 @@
                 <h3 class="subheading">⚙️ Self-host both, MCP points at your backend</h3>
                 <div class="install-snippet-wrap">
                     <button class="copy-snippet-btn" type="button" data-copy-snippet aria-label="Copy self-hosted MCP command" title="Copy command"></button>
-                    <pre class="install-snippet"><code>claude mcp add opengraph -- npx -y @krytonlabs/opengraph-mcp \
-  --env OPENGRAPH_BACKEND=http://localhost:6736</code></pre>
+                    <pre class="install-snippet"><code>claude mcp add -e OPENGRAPH_BACKEND=http://localhost:6736 \
+  opengraph -- npx -y @krytonlabs/opengraph-mcp</code></pre>
                 </div>
             </div>
 

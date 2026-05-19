@@ -13,8 +13,8 @@ Restart Claude Code. The MCP defaults to the hosted backend at `https://opengrap
 ## Self-hosted backend
 
 ```bash
-claude mcp add opengraph -- npx -y @krytonlabs/opengraph-mcp \
-  --env OPENGRAPH_BACKEND=http://localhost:6736
+claude mcp add -e OPENGRAPH_BACKEND=http://localhost:6736 \
+  opengraph -- npx -y @krytonlabs/opengraph-mcp
 ```
 
 ## Tools
