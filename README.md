@@ -8,11 +8,19 @@ Self-hostable tool that turns a single image into the full set of OpenGraph + fa
 
 ## Ways to use it
 
-### 1. Use the hosted instance (zero setup)
+### 1. Use the hosted web app
 
-Visit https://opengraph.krytonlabs.com. Drop an image, get a ZIP. Done.
+Visit https://opengraph.krytonlabs.com. Drop an image, get a ZIP.
 
-### 2. Self-host with Docker
+### 2. Use it from Claude Code via MCP
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | bash
+```
+
+Restart Claude Code. The installer downloads only the MCP runner files. By default, processing uses the KrytonLabs hosted backend with server-side rate limits.
+
+### 3. Self-host with Docker
 
 ```bash
 git clone https://github.com/kmanan/opengraph-generator
@@ -23,15 +31,15 @@ docker compose up -d
 
 Running on `http://localhost:6736`. Or use Portainer — paste `docker-compose.yml` as a stack, fill env vars in the form, click deploy.
 
-### 3. Connect Claude Code via MCP
+### 4. Use MCP with your self-hosted backend
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | OPENGRAPH_BACKEND=http://localhost:6736 bash
 ```
 
-Restart Claude Code. The installer downloads only the MCP runner files, not the web app. Processing goes to your self-hosted backend.
+Same MCP runner, but processing goes to your own backend.
 
-### 4. Self-host without Docker (bare Node)
+### 5. Self-host without Docker (bare Node)
 
 ```bash
 git clone https://github.com/kmanan/opengraph-generator

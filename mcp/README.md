@@ -1,8 +1,14 @@
 # @krytonlabs/opengraph-mcp
 
-MCP server for the [OpenGraph Resizer](https://github.com/kmanan/opengraph-generator). The installer downloads only this MCP runner and requires a self-hosted OpenGraph backend via `OPENGRAPH_BACKEND`.
+MCP server for the [OpenGraph Resizer](https://github.com/kmanan/opengraph-generator). By default it uses the KrytonLabs hosted backend; set `OPENGRAPH_BACKEND` to use your own self-hosted backend.
 
-## Install
+## Hosted install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | bash
+```
+
+## Self-hosted backend install
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | OPENGRAPH_BACKEND=http://localhost:6736 bash

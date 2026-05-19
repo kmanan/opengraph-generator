@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BACKEND="${OPENGRAPH_BACKEND:-${1:-http://localhost:6736}}"
+BACKEND="${OPENGRAPH_BACKEND:-${1:-https://opengraph.krytonlabs.com}}"
 INSTALL_DIR="${OPENGRAPH_MCP_INSTALL_DIR:-$HOME/.opengraph-mcp}"
 BASE_URL="${OPENGRAPH_MCP_BASE_URL:-https://raw.githubusercontent.com/kmanan/opengraph-generator/main/mcp}"
 

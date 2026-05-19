@@ -341,11 +341,21 @@
 
         <!-- Self-host + MCP install -->
         <div class="distribution-section">
-            <h2 class="info-heading">Run this yourself or wire it into Claude Code</h2>
-            <p class="section-subtitle">Run the backend yourself, then connect Claude Code to your own instance.</p>
+            <h2 class="info-heading">Use hosted MCP or run it yourself</h2>
+            <p class="section-subtitle">Start with KrytonLabs hosted processing, or point the same MCP runner at your own backend.</p>
+
+            <div class="dist-card">
+                <h3 class="subheading">🤖 Use in Claude Code</h3>
+                <p>Installs only the MCP runner. Processing uses the KrytonLabs hosted backend with server-side rate limits.</p>
+                <div class="install-snippet-wrap">
+                    <button class="copy-snippet-btn" type="button" data-copy-snippet aria-label="Copy hosted MCP install command" title="Copy command"></button>
+                    <pre class="install-snippet"><code>curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | bash</code></pre>
+                </div>
+            </div>
+
             <div class="dist-card">
                 <h3 class="subheading">🐳 Self-host with Docker</h3>
-                <p>Run your own instance. Edit env vars to taste — see <code>.env.example</code>.</p>
+                <p>Run your own backend. Edit env vars to taste — see <code>.env.example</code>.</p>
                 <div class="install-snippet-wrap">
                     <button class="copy-snippet-btn" type="button" data-copy-snippet aria-label="Copy Docker self-host command" title="Copy command"></button>
                     <pre class="install-snippet"><code>docker run -d --name opengraph -p 6736:6736 \
@@ -356,8 +366,8 @@
             </div>
 
             <div class="dist-card">
-                <h3 class="subheading">⚙️ Connect Claude Code to your backend</h3>
-                <p>Downloads only the MCP runner files. Processing goes to your backend; the MCP server refuses to run without <code>OPENGRAPH_BACKEND</code>.</p>
+                <h3 class="subheading">⚙️ Use MCP with your backend</h3>
+                <p>Same MCP runner, but processing goes to your self-hosted backend.</p>
                 <div class="install-snippet-wrap">
                     <button class="copy-snippet-btn" type="button" data-copy-snippet aria-label="Copy self-hosted MCP command" title="Copy command"></button>
                     <pre class="install-snippet"><code>curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | OPENGRAPH_BACKEND=http://localhost:6736 bash</code></pre>

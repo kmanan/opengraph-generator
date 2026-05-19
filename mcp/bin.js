@@ -9,12 +9,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import AdmZip from "adm-zip";
 
-const rawBackend = process.env.OPENGRAPH_BACKEND;
-if (!rawBackend) {
-  console.error("OPENGRAPH_BACKEND is required. Start a self-hosted OpenGraph backend and set OPENGRAPH_BACKEND=http://localhost:6736.");
-  process.exit(1);
-}
-const BACKEND = rawBackend.replace(/\/$/, "");
+const BACKEND = (process.env.OPENGRAPH_BACKEND || "https://opengraph.krytonlabs.com").replace(/\/$/, "");
 const VERSION = "0.1.0";
 
 const MIME_BY_EXT = {
