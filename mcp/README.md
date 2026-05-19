@@ -1,6 +1,6 @@
 # @krytonlabs/opengraph-mcp
 
-MCP server for the [OpenGraph Resizer](https://github.com/kmanan/opengraph-generator). It requires a self-hosted OpenGraph backend via `OPENGRAPH_BACKEND`.
+MCP server for the [OpenGraph Resizer](https://github.com/kmanan/opengraph-generator). The installer downloads only this MCP runner and requires a self-hosted OpenGraph backend via `OPENGRAPH_BACKEND`.
 
 ## Install
 

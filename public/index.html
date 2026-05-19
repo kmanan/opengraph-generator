@@ -357,7 +357,7 @@
 
             <div class="dist-card">
                 <h3 class="subheading">⚙️ Connect Claude Code to your backend</h3>
-                <p>Requires the Docker backend above. The MCP server refuses to run without <code>OPENGRAPH_BACKEND</code>.</p>
+                <p>Downloads only the MCP runner files. Processing goes to your backend; the MCP server refuses to run without <code>OPENGRAPH_BACKEND</code>.</p>
                 <div class="install-snippet-wrap">
                     <button class="copy-snippet-btn" type="button" data-copy-snippet aria-label="Copy self-hosted MCP command" title="Copy command"></button>
                     <pre class="install-snippet"><code>curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | OPENGRAPH_BACKEND=http://localhost:6736 bash</code></pre>

@@ -29,7 +29,7 @@ Running on `http://localhost:6736`. Or use Portainer — paste `docker-compose.y
 curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | OPENGRAPH_BACKEND=http://localhost:6736 bash
 ```
 
-Restart Claude Code. MCP writes generated files into the project path you give it and sends processing to your self-hosted backend.
+Restart Claude Code. The installer downloads only the MCP runner files, not the web app. Processing goes to your self-hosted backend.
 
 ### 4. Self-host without Docker (bare Node)
 
