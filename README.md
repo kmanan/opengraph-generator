@@ -26,8 +26,7 @@ Running on `http://localhost:6736`. Or use Portainer — paste `docker-compose.y
 ### 3. Connect Claude Code via MCP
 
 ```bash
-claude mcp add --transport stdio -e OPENGRAPH_BACKEND=http://localhost:6736 \
-  opengraph -- npx -y --package github:kmanan/opengraph-generator opengraph-mcp
+curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | OPENGRAPH_BACKEND=http://localhost:6736 bash
 ```
 
 Restart Claude Code. MCP writes generated files into the project path you give it and sends processing to your self-hosted backend.

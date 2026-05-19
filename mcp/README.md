@@ -5,8 +5,7 @@ MCP server for the [OpenGraph Resizer](https://github.com/kmanan/opengraph-gener
 ## Install
 
 ```bash
-claude mcp add --transport stdio -e OPENGRAPH_BACKEND=http://localhost:6736 \
-  opengraph -- npx -y --package github:kmanan/opengraph-generator opengraph-mcp
+curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | OPENGRAPH_BACKEND=http://localhost:6736 bash
 ```
 
 ## Tools
