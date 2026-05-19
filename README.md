@@ -6,50 +6,59 @@ Self-hostable tool that turns a single image into the full set of OpenGraph + fa
 
 ---
 
-## Ways to use it
+## Quick Start
 
-### 1. Use the hosted web app
+Pick one path.
 
-Visit https://opengraph.krytonlabs.com. Drop an image, get a ZIP.
+### Use the hosted web app
 
-### 2. Use it from Claude Code via MCP
+Open https://opengraph.krytonlabs.com, upload an image, and download the generated assets.
+
+### Use it from Claude Code
+
+Install the MCP runner:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | bash
 ```
 
-Restart Claude Code. The installer downloads only the MCP runner files. By default, processing uses the KrytonLabs hosted backend with server-side rate limits.
+Restart Claude Code, then ask it to generate assets from an image in your project. The MCP runner is installed locally; processing uses the KrytonLabs hosted backend by default.
 
-### 3. Self-host with Docker
+### Self-host with Docker
 
 ```bash
-git clone https://github.com/kmanan/opengraph-generator
-cd opengraph-generator
-cp .env.example .env       # edit if you want, defaults work
-docker compose up -d
+docker run -d --name opengraph -p 6736:6736 \
+  -e PUBLIC_URL=http://localhost:6736 \
+  ghcr.io/kmanan/opengraph:latest
 ```
 
-Running on `http://localhost:6736`. Or use Portainer — paste `docker-compose.yml` as a stack, fill env vars in the form, click deploy.
+Open http://localhost:6736.
 
-### 4. Use MCP with your self-hosted backend
+### Use Claude Code with your self-hosted backend
+
+Start the Docker container above, then install MCP pointed at it:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/kmanan/opengraph-generator/main/scripts/install-mcp.sh | OPENGRAPH_BACKEND=http://localhost:6736 bash
 ```
 
-Same MCP runner, but processing goes to your own backend.
+Restart Claude Code. The same MCP runner now sends processing to your backend instead of the hosted KrytonLabs backend.
 
-### 5. Self-host without Docker (bare Node)
+### Self-host without Docker
 
 ```bash
 git clone https://github.com/kmanan/opengraph-generator
 cd opengraph-generator
-npm ci                      # use `ci`, not `install` — honors the lockfile
-cp .env.example .env        # edit if you want
-npm start                   # or: pm2 start server.js --name opengraph
+npm ci
+cp .env.example .env
+npm start
 ```
 
-Requires Node.js 20+ for fresh installs (the lockfile pins compatible undici versions, but newer transitives may need Node 20). The Docker image uses Node 20 by default.
+Open http://localhost:6736. Requires Node.js 20+ for fresh installs. The Docker image uses Node 20 by default.
+
+### Portainer
+
+Paste `docker-compose.yml` as a stack, fill in env vars on the form, and deploy.
 
 ### Logs
 
