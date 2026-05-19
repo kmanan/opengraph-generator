@@ -1,0 +1,35 @@
+# Self-hosted OpenGraph Resizer.
+#
+# Quick start:
+#   cp .env.example .env   # edit values to taste (or skip — defaults are fine)
+#   docker compose up -d
+#
+# Or via Portainer: add this file as a stack, fill in env vars on the form.
+
+services:
+  opengraph:
+    image: ghcr.io/kmanan/opengraph:latest
+    # To build locally instead, comment out the image line above and uncomment:
+    # build: .
+    container_name: opengraph
+    restart: unless-stopped
+    ports:
+      - "${PORT:-6736}:6736"
+    environment:
+      PORT: 6736
+      PUBLIC_URL: ${PUBLIC_URL:-http://localhost:6736}
+      SITE_NAME: ${SITE_NAME:-OpenGraph Resizer}
+      SITE_TAGLINE: ${SITE_TAGLINE:-Resize images for social media & analyze any URL's OpenGraph tags}
+      BRAND_NAME: ${BRAND_NAME:-}
+      BRAND_URL: ${BRAND_URL:-}
+      GA_MEASUREMENT_ID: ${GA_MEASUREMENT_ID:-}
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-10}
+      RATE_LIMIT_GENERATE: ${RATE_LIMIT_GENERATE:-20}
+      RATE_LIMIT_ANALYZE: ${RATE_LIMIT_ANALYZE:-30}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-*}
+      TRUST_PROXY: ${TRUST_PROXY:-1}
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:6736/health', r => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

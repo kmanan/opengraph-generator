@@ -1,203 +1,138 @@
-# 📱 OpenGraph Image Resizer
+# OpenGraph Resizer
 
-**Free tool to resize images for perfect social media dimensions, create favicons, and PWA icons for all platforms including iPhone and Android.**
+Self-hostable tool that turns a single image into the full set of OpenGraph + favicon + PWA assets every modern site needs. Plus a URL analyzer that previews how a page will look on Facebook, X/Twitter, LinkedIn, WhatsApp, and Discord.
 
-🌐 **Live Demo:** [https://opengraph.krytonlabs.com/](https://opengraph.krytonlabs.com/)
-
-## ✨ Features
-
-- 🎯 **Perfect Social Media Resizing** - Facebook (1200×630px), Twitter, LinkedIn optimized
-- 📱 **Mobile Platform Support** - iPhone and Android optimized images
-- 📷 **Instagram & WhatsApp Ready** - Square 1200×1200px images  
-- 🔗 **Complete Favicon Set** - ICO, SVG, PNG (all sizes)
-- 📲 **PWA & Mobile App Icons** - iOS and Android home screen icons
-- 🎨 **Drag & Drop Interface** - Modern, responsive UI
-- ⚡ **Instant ZIP Download** - All files generated in seconds
-- 🔒 **Privacy First** - No image storage, memory-only processing
-- 🛡️ **Production Ready** - Security middleware, rate limiting
-
-## 🎯 What You Get
-
-When you upload an image, you instantly get:
-
-### **Social Media Images**
-- `og-image.png` - 1200×630px (Facebook, Twitter, LinkedIn)
-- `og-square.png` - 1200×1200px (Instagram, WhatsApp)
-
-### **Complete Favicon Set**
-- `favicon.ico` - Multi-size ICO file
-- `icon.svg` - Scalable SVG favicon with dark/light mode
-- `favicon-16x16.png` - Browser tab icon
-- `favicon-32x32.png` - High-res browser icon
-- `apple-touch-icon.png` - 180×180px iOS icon
-
-### **Mobile Platform Icons**
-- `apple-touch-icon.png` - 180×180px iPhone/iOS home screen icon
-- `android-chrome-192x192.png` - Android home screen icon
-- `android-chrome-512x512.png` - Android PWA splash screen
-- `manifest.webmanifest` - Progressive Web App manifest
-- `browserconfig.xml` - Windows tile configuration
-
-### **Implementation Files**
-- `implementation.html` - Ready-to-use HTML template with all meta tags
-- Complete OpenGraph, Twitter Cards, and social media meta tags
-
-## 🚀 Quick Start
-
-### **Using the Live Tool**
-1. Visit [https://opengraph.krytonlabs.com/](https://opengraph.krytonlabs.com/)
-2. Upload any image (PNG, JPG, GIF)
-3. Choose SVG favicon color
-4. Download your complete social media kit as ZIP
-
-### **Self-Hosting**
-
-```bash
-# Clone the repository
-git clone https://github.com/kmanan/opengraph-image-resizer.git
-cd opengraph-image-resizer
-
-# Install dependencies
-npm install
-
-# Start the server
-npm start
-
-# Visit http://localhost:6001
-```
-
-## 🛠️ Tech Stack
-
-- **Backend:** Node.js + Express.js
-- **Image Processing:** Sharp (fastest, most efficient)
-- **ZIP Generation:** Archiver
-- **File Uploads:** Multer
-- **Security:** Helmet, CORS, Rate Limiting
-- **Frontend:** Vanilla HTML/CSS/JavaScript with modern UI
-
-## 📦 Dependencies
-
-```json
-{
-  "sharp": "^0.33.5",
-  "archiver": "^7.0.1", 
-  "express": "^4.21.1",
-  "multer": "^2.0.2",
-  "to-ico": "^1.1.5",
-  "helmet": "^8.0.0",
-  "cors": "^2.8.5",
-  "express-rate-limit": "^7.4.1"
-}
-```
-
-## 🏗️ Architecture
-
-### **Privacy-First Design**
-- All image processing happens in memory buffers only
-- Zero file storage - images never saved to server disk
-- Automatic memory cleanup after download
-- Perfect for privacy-conscious users and scalable deployments
-
-### **Processing Flow**
-```
-Upload Image → Sharp Resizing → Generate All Platform Sizes → 
-Create ZIP Archive → Stream Download → Memory Cleanup
-```
-
-## 🔧 Configuration
-
-### **Environment Variables**
-```bash
-PORT=6001                    # Server port (default: 6001)
-NODE_ENV=production         # Environment mode
-```
-
-### **Production Deployment**
-
-**With PM2:**
-```bash
-# Install PM2 globally
-npm install -g pm2
-
-# Start the application
-pm2 start server.js --name "opengraph-image-resizer"
-
-# Auto-start on server boot
-pm2 startup
-pm2 save
-```
-
-**With Docker:**
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-EXPOSE 6001
-CMD ["node", "server.js"]
-```
-
-## 🎨 Customization
-
-### **Modify Image Sizes**
-Edit the `sizes` array in `server.js`:
-```javascript
-const sizes = [
-  { name: 'og-image.png', width: 1200, height: 630 },
-  { name: 'custom-size.png', width: 800, height: 400 },
-  // Add your custom sizes
-];
-```
-
-### **Change UI Theme**
-Modify `public/style.css` to customize colors, fonts, and layout.
-
-### **Add New File Formats**
-Extend the Sharp processing pipeline in `server.js` to generate WebP, AVIF, or other formats.
-
-## 🛡️ Security Features
-
-- **Helmet.js** - Security headers
-- **CORS** - Cross-origin protection  
-- **Rate Limiting** - 100 requests per 15 minutes per IP
-- **File Validation** - Image type and size limits
-- **Memory Limits** - Prevents memory exhaustion attacks
-
-## 📊 Performance
-
-- **Processing Speed:** 100-500ms per image set
-- **Memory Usage:** ~50-100MB per concurrent request  
-- **Supported Formats:** PNG, JPG, GIF, WebP, TIFF
-- **Max File Size:** 10MB
-- **Concurrent Users:** 10-50 on basic VPS
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Sharp** - Incredible image processing performance
-- **Archiver** - Reliable ZIP generation
-- **Express.js** - Solid web framework foundation
-
-## 🔗 Links
-
-- **Live Demo:** [https://opengraph.krytonlabs.com/](https://opengraph.krytonlabs.com/)
-- **GitHub:** [https://github.com/kmanan/opengraph-image-resizer](https://github.com/kmanan/opengraph-image-resizer)
-- **Documentation:** See `/docs` folder for detailed guides
+**Live instance:** https://opengraph.krytonlabs.com — same code as this repo, just one of many possible deployments.
 
 ---
 
-**Made with ❤️ by [KrytonLabs](https://krytonlabs.com)**
+## Three ways to use it
 
-*Resize images for perfect social media dimensions in seconds!* 
+### 1. Use the hosted instance (zero setup)
+
+Visit https://opengraph.krytonlabs.com. Drop an image, get a ZIP. Done.
+
+### 2. Use it from Claude Code via MCP
+
+One line, then restart Claude Code:
+
+```bash
+claude mcp add opengraph -- npx -y @krytonlabs/opengraph-mcp
+```
+
+Then in any project:
+
+> "Generate OG assets and favicons from `./assets/logo.png`, drop them in `./public`, and wire up the meta tags in `index.html`."
+
+Claude calls the MCP, the MCP calls the hosted backend, the assets land in your project. Defaults to the hosted backend; set `OPENGRAPH_BACKEND` env var to point at your own self-hosted instance.
+
+### 3. Self-host with Docker
+
+```bash
+git clone https://github.com/kmanan/opengraph
+cd opengraph
+cp .env.example .env       # edit if you want, defaults work
+docker compose up -d
+```
+
+Running on `http://localhost:6736`. Or use Portainer — paste `docker-compose.yml` as a stack, fill env vars in the form, click deploy.
+
+### 3b. Self-host without Docker (bare Node)
+
+```bash
+git clone https://github.com/kmanan/opengraph
+cd opengraph
+npm ci                      # use `ci`, not `install` — honors the lockfile
+cp .env.example .env        # edit if you want
+npm start                   # or: pm2 start server.js --name opengraph
+```
+
+Requires Node.js 20+ for fresh installs (the lockfile pins compatible undici versions, but newer transitives may need Node 20). The Docker image uses Node 20 by default.
+
+### Logs
+
+- **Docker:** `docker logs opengraph -f`
+- **PM2:** `pm2 logs opengraph` (or `tail -f ~/.pm2/logs/opengraph-out.log ~/.pm2/logs/opengraph-error.log`)
+- **Bare Node:** stdout/stderr go wherever you redirected them
+
+Startup logs include the resolved config (PUBLIC_URL, GA_MEASUREMENT_ID present/absent, SITE_NAME). Every error path on `/api/analyze` and `/generate` logs the underlying reason.
+
+---
+
+## What you get from `/generate`
+
+A ZIP with:
+
+| File | Purpose |
+|---|---|
+| `og-image.png` | 1200×630 — Facebook, X, LinkedIn share image |
+| `og-square.png` | 1200×1200 — Instagram, WhatsApp, Pinterest |
+| `favicon.ico` | Multi-size ICO for browser tabs |
+| `icon.svg` | Scalable SVG favicon (auto dark/light) |
+| `favicon-16x16.png` / `favicon-32x32.png` | Legacy browser sizes |
+| `apple-touch-icon.png` | 180×180 iOS home screen |
+| `android-chrome-192x192.png` / `android-chrome-512x512.png` | Android |
+| `manifest.webmanifest` | PWA manifest |
+| `implementation.html` | Drop-in HTML template with all meta tags |
+
+All processing happens in-memory. No image is ever written to disk.
+
+---
+
+## Configuration
+
+Every behavior-affecting setting is an env var. See `.env.example` for the full list with defaults. Highlights:
+
+| Var | Default | What it does |
+|---|---|---|
+| `PORT` | `6736` | HTTP port to listen on |
+| `PUBLIC_URL` | `http://localhost:6736` | Used in meta tags, canonical, OG image URLs on the landing page |
+| `SITE_NAME` | `OpenGraph Resizer` | Title + h1 + branding |
+| `BRAND_NAME` | (empty) | "A Product by …" footer line. Empty = hidden. |
+| `BRAND_URL` | (empty) | Link target for `BRAND_NAME` |
+| `GA_MEASUREMENT_ID` | (empty) | GA4 ID. Unset = no analytics scripts, no GA hosts in CSP. |
+| `MAX_UPLOAD_MB` | `10` | Reject uploads larger than this |
+| `RATE_LIMIT_GENERATE` | `20` | `/generate` requests per IP per 15 min |
+| `RATE_LIMIT_ANALYZE` | `30` | `/api/analyze` requests per IP per 15 min |
+| `TRUST_PROXY` | `1` | Pass through to Express `trust proxy`. Required behind nginx/Cloudflare/Caddy. |
+| `ALLOWED_ORIGINS` | `*` | Comma-separated CORS allowlist |
+
+---
+
+## HTTP API
+
+Versioned endpoints (use these from external code):
+
+### `POST /api/v1/generate`
+
+Multipart form: `image` (required, file), `svgColor` (optional, hex string).
+Returns: `application/zip`.
+
+### `GET /api/v1/analyze?url=...`
+
+Returns JSON with OpenGraph + Twitter Card + meta tags extracted from the page, plus resolved absolute URLs for image / favicon. SSRF-protected (private/loopback/link-local/cloud-metadata IPs are rejected, including via redirects).
+
+Unversioned aliases (`/generate`, `/api/analyze`) exist for the bundled landing page. External integrators should use the `/api/v1/*` paths.
+
+### `GET /health`
+
+Returns `{"status":"ok",...}`. Used by Docker's healthcheck.
+
+---
+
+## Security
+
+- Multer file size + MIME-type limits.
+- SSRF protection on URL fetching: DNS lookup + private/loopback/link-local/multicast IP rejection, re-checked on every redirect hop. Response size capped at 5MB, content-type validated.
+- `helmet` + CSP. GA hosts only allowed when `GA_MEASUREMENT_ID` is set.
+- Per-route rate limiting via `express-rate-limit`. `trust proxy` enabled so limits work behind a reverse proxy.
+
+Vulnerability reports: see [SECURITY.md](SECURITY.md).
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE).
+
+Built on [Sharp](https://github.com/lovell/sharp), [Archiver](https://github.com/archiverjs/node-archiver), [Express](https://github.com/expressjs/express), [Multer](https://github.com/expressjs/multer), [helmet](https://github.com/helmetjs/helmet), [express-rate-limit](https://github.com/express-rate-limit/express-rate-limit), [cheerio](https://github.com/cheeriojs/cheerio), [axios](https://github.com/axios/axios).

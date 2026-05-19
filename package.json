@@ -1,0 +1,37 @@
+{
+  "name": "opengraph-resizer",
+  "version": "0.1.0",
+  "description": "Self-hostable OpenGraph image resizer, favicon generator, and OG-tag analyzer.",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmanan/opengraph.git"
+  },
+  "homepage": "https://opengraph.krytonlabs.com",
+  "bugs": {
+    "url": "https://github.com/kmanan/opengraph/issues"
+  },
+  "main": "server.js",
+  "workspaces": [
+    "mcp"
+  ],
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "axios": "^1.16.1",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "helmet": "^8.1.0",
+    "multer": "^2.1.1",
+    "sharp": "^0.34.5"
+  }
+}

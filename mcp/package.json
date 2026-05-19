@@ -1,0 +1,35 @@
+{
+  "name": "@krytonlabs/opengraph-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for OpenGraph Resizer — generate OG/favicon/PWA assets and analyze URLs from any MCP client (Claude Code, Cursor, etc.).",
+  "type": "module",
+  "bin": {
+    "opengraph-mcp": "./bin.js"
+  },
+  "main": "./bin.js",
+  "files": [
+    "bin.js",
+    "README.md"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "opengraph",
+    "favicon",
+    "claude",
+    "claude-code"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmanan/opengraph.git",
+    "directory": "mcp"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "adm-zip": "^0.5.16"
+  }
+}

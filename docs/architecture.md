@@ -4,7 +4,7 @@
 
 ### **Primary Stack:**
 ```bash
-npm install sharp archiver express multer to-ico
+npm install sharp archiver express multer
 ```
 
 ### **Why This Specific Combination:**
@@ -13,7 +13,7 @@ npm install sharp archiver express multer to-ico
 - ✅ **Most resource efficient** (4-5x faster than alternatives)
 - ✅ **No file storage needed** - works with buffers in memory
 - ✅ **Perfect for zip generation** - outputs buffers directly
-- ✅ **Best ICO support** when combined with simple ICO library
+- ✅ **ICO output without extra dependencies** - writes PNG-based ICO files locally
 
 **2. Simple Architecture:**
 ```javascript
@@ -33,7 +33,6 @@ const express = require('express');
 const sharp = require('sharp');
 const archiver = require('archiver');
 const multer = require('multer');
-const toIco = require('to-ico');
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -66,7 +65,10 @@ app.post('/generate', upload.single('image'), async (req, res) => {
     // Generate ICO file
     const ico16 = await sharp(inputBuffer).resize(16, 16).png().toBuffer();
     const ico32 = await sharp(inputBuffer).resize(32, 32).png().toBuffer();
-    const icoBuffer = await toIco([ico16, ico32]);
+    const icoBuffer = createIco([
+      { width: 16, height: 16, buffer: ico16 },
+      { width: 32, height: 32, buffer: ico32 },
+    ]);
     
     // Generate SVG favicon
     const svgFavicon = generateSVG('#000000'); // Customizable color
@@ -166,7 +168,7 @@ app.listen(PORT, () => {
 ```
 /
 ├── server.js              # Main Express server
-├── package.json           # Dependencies: sharp, archiver, express, multer, to-ico
+├── package.json           # Dependencies: sharp, archiver, express, multer
 ├── public/                # Frontend files
 │   ├── index.html         # Upload interface
 │   ├── style.css          # Styling

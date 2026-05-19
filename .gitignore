@@ -63,7 +63,11 @@ Thumbs.db
 *.swo
 *~
 
+# Local agent / session state — must not be committed
+.claude/
+.specstory/
+
 # Generated HTML files (keep the implementation examples)
 opengraph-implementation.html
 meta-tags-only.html
-opengraph-meta-tags-for-krytonlabs.html 
+opengraph-meta-tags-for-krytonlabs.html

@@ -22,22 +22,45 @@ body {
     overflow: hidden;
 }
 
-header {
+header.page-header {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
-    padding: 40px;
+    padding: 28px 40px;
     text-align: center;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+.brand-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-size: 2.25rem;
     font-weight: 600;
+    line-height: 1.2;
 }
 
-header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
+.brand-logo {
+    width: 56px;
+    height: 56px;
+    margin-right: 14px;
+    flex-shrink: 0;
+}
+
+.tagline {
+    font-size: 1.05rem;
+    opacity: 0.92;
+    margin-bottom: 14px;
+}
+
+.privacy-notice {
+    display: inline-block;
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 500;
+    background: rgba(255,255,255,0.12);
+    padding: 8px 16px;
+    border-radius: 6px;
 }
 
 .upload-section {
@@ -193,6 +216,231 @@ header p {
     font-size: 1.3rem;
 }
 
+.info-heading {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.section-subtitle {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.subheading {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.why-section {
+    margin-top: 40px;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+/* Distribution / self-host / MCP section */
+.distribution-section {
+    padding: 40px;
+    background: #ffffff;
+    border-top: 1px solid #eee;
+}
+
+.dist-card {
+    background: #f8f9fa;
+    border: 1px solid #e1e5eb;
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 18px;
+}
+
+.dist-card .subheading {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.dist-card p {
+    color: #555;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.dist-card p:last-child {
+    margin-bottom: 0;
+}
+
+.install-snippet-wrap {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.install-snippet-wrap .install-snippet {
+    margin-bottom: 0;
+    padding-right: 54px;
+}
+
+.copy-snippet-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background: transparent;
+    color: #b9c0cc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.copy-snippet-btn::before,
+.copy-snippet-btn::after {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border: 1.8px solid currentColor;
+    border-radius: 3px;
+}
+
+.copy-snippet-btn::before {
+    top: 8px;
+    left: 11px;
+}
+
+.copy-snippet-btn::after {
+    top: 12px;
+    left: 7px;
+    background: #1e1e1e;
+}
+
+.copy-snippet-btn:hover,
+.copy-snippet-btn:focus-visible {
+    background: rgba(255,255,255,0.08);
+    color: #ffffff;
+    outline: none;
+}
+
+.copy-snippet-btn.copied {
+    color: #7ee2a8;
+}
+
+.copy-snippet-btn.copy-failed {
+    color: #ff8a8a;
+}
+
+.install-snippet {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.install-snippet code {
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.install-note {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 8px;
+}
+
+.dist-card code {
+    background: #eef0f3;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: #2c3e50;
+}
+
+.dist-card .install-snippet code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+.repo-link {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 1rem;
+}
+
+.repo-link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.repo-link a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.page-footer {
+    max-width: 800px;
+    margin: 30px auto 0;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 16px;
+}
+
+.footer-brand {
+    margin-bottom: 12px;
+    font-size: 1.05em;
+    font-weight: 500;
+}
+
+.footer-brand:empty {
+    display: none;
+}
+
+.footer-brand a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.footer-credits {
+    font-size: 0.9em;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.footer-credits a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+}
+
+.footer-credits a:hover {
+    text-decoration: underline;
+}
+
 .file-list {
     display: grid;
     gap: 12px;
@@ -234,4 +482,659 @@ header p {
     .info-section {
         padding: 30px 20px;
     }
-} 
+}
+
+/* OpenGraph Checker Styles */
+.og-checker-section {
+    padding: 40px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+.og-checker-section h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.url-input-wrapper {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.url-input {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border: 2px solid #e1e5eb;
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.url-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.analyze-btn {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.analyze-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+}
+
+.analyze-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.analyze-loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.analyze-loading::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* OG Results */
+.og-results {
+    display: grid;
+    gap: 30px;
+}
+
+.og-data-section {
+    background: #f8f9fa;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.og-data-section h3 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.og-field {
+    margin-bottom: 18px;
+}
+
+.og-field:last-child {
+    margin-bottom: 0;
+}
+
+.og-field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #667eea;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.og-value {
+    padding: 12px 14px;
+    background: white;
+    border: 1px solid #e1e5eb;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #333;
+    word-break: break-word;
+}
+
+.og-description {
+    min-height: 60px;
+}
+
+.og-char-count {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 4px;
+}
+
+.og-image-preview {
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.og-image-preview img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    display: block;
+}
+
+.og-image-placeholder {
+    padding: 40px;
+    text-align: center;
+    color: #999;
+}
+
+.og-image-url {
+    font-size: 0.85rem;
+    color: #666;
+    word-break: break-all;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+/* Platform Previews */
+.platform-previews {
+    background: #f8f9fa;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.platform-previews h3 {
+    margin-bottom: 16px;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.platform-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.platform-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: white;
+    border: 2px solid #e1e5eb;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.platform-tab:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.platform-tab.active {
+    background: #667eea;
+    border-color: #667eea;
+    color: white;
+}
+
+.platform-tab svg {
+    width: 18px;
+    height: 18px;
+}
+
+.platform-preview {
+    display: none;
+}
+
+.platform-preview.active {
+    display: block;
+}
+
+/* Facebook Card */
+.facebook-card {
+    background: white;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 500px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.fb-image-container {
+    width: 100%;
+    height: 260px;
+    background: #f0f2f5;
+    position: relative;
+}
+
+.fb-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fb-image-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #999;
+}
+
+.fb-content {
+    padding: 12px;
+    background: #f0f2f5;
+}
+
+.fb-domain {
+    font-size: 12px;
+    color: #606770;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.fb-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2129;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.fb-description {
+    font-size: 14px;
+    color: #606770;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Twitter Card */
+.twitter-card {
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 500px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.twitter-image-container {
+    width: 100%;
+    height: 250px;
+    background: #f7f9fa;
+    position: relative;
+}
+
+.twitter-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.twitter-image-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #999;
+}
+
+.twitter-content {
+    padding: 12px;
+}
+
+.twitter-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f1419;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.twitter-description {
+    font-size: 15px;
+    color: #536471;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.twitter-domain {
+    font-size: 15px;
+    color: #536471;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.twitter-domain::before {
+    content: '🔗';
+    font-size: 12px;
+}
+
+/* LinkedIn Card */
+.linkedin-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 500px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.linkedin-image-container {
+    width: 100%;
+    height: 260px;
+    background: #f3f2ef;
+    position: relative;
+}
+
+.linkedin-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.linkedin-image-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #999;
+}
+
+.linkedin-content {
+    padding: 12px 16px;
+    background: #f3f2ef;
+}
+
+.linkedin-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.9);
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.linkedin-domain {
+    font-size: 12px;
+    color: rgba(0,0,0,0.6);
+}
+
+/* WhatsApp Card */
+.whatsapp-card {
+    background: #e7ffdb;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 340px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.wa-image-container {
+    width: 100%;
+    height: 180px;
+    background: #c8e6c9;
+    position: relative;
+}
+
+.wa-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wa-image-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #999;
+}
+
+.wa-content {
+    padding: 8px 12px;
+    background: #dcf8c6;
+    border-left: 4px solid #25d366;
+}
+
+.wa-domain {
+    font-size: 11px;
+    color: #128c7e;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.wa-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 2px;
+    line-height: 1.3;
+}
+
+.wa-description {
+    font-size: 13px;
+    color: #667;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Discord Card */
+.discord-card {
+    background: #2f3136;
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 500px;
+    font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+}
+
+.discord-accent {
+    width: 4px;
+    background: #667eea;
+    flex-shrink: 0;
+}
+
+.discord-body {
+    padding: 12px 16px;
+    flex: 1;
+}
+
+.discord-site {
+    font-size: 12px;
+    color: #b9bbbe;
+    margin-bottom: 4px;
+}
+
+.discord-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #00aff4;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.discord-description {
+    font-size: 14px;
+    color: #dcddde;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.discord-image-container {
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 400px;
+}
+
+.discord-image-container img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Raw Data Section */
+.raw-data-section {
+    margin-top: 20px;
+}
+
+.toggle-raw-btn {
+    padding: 10px 20px;
+    background: #f8f9fa;
+    border: 1px solid #e1e5eb;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.toggle-raw-btn:hover {
+    background: #e9ecef;
+}
+
+#rawDataDisplay {
+    margin-top: 12px;
+    padding: 16px;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border-radius: 8px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Error State */
+.og-error {
+    padding: 16px 20px;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #dc2626;
+    font-size: 0.95rem;
+}
+
+/* Responsive for OG Checker */
+@media (max-width: 600px) {
+    .og-checker-section {
+        padding: 30px 20px;
+    }
+    
+    .url-input-wrapper {
+        flex-direction: column;
+    }
+    
+    .analyze-btn {
+        width: 100%;
+    }
+    
+    .platform-tabs {
+        gap: 6px;
+    }
+    
+    .platform-tab {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .platform-tab svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .facebook-card,
+    .twitter-card,
+    .linkedin-card,
+    .whatsapp-card,
+    .discord-card {
+        max-width: 100%;
+    }
+
+    /* Header tightens up */
+    header.page-header {
+        padding: 20px 16px;
+    }
+
+    .brand-line {
+        font-size: 1.6rem;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .brand-logo {
+        width: 48px;
+        height: 48px;
+        margin-right: 0;
+    }
+
+    .tagline {
+        font-size: 0.95rem;
+    }
+
+    .privacy-notice {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
+    /* Distribution section */
+    .distribution-section {
+        padding: 30px 20px;
+    }
+
+    .dist-card {
+        padding: 16px;
+    }
+
+    .install-snippet {
+        font-size: 12px;
+        padding: 12px;
+    }
+
+    /* Platform tabs scroll horizontally on small screens */
+    .platform-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .platform-tab {
+        flex-shrink: 0;
+    }
+
+    /* Footer */
+    .page-footer {
+        border-radius: 12px;
+        padding: 24px 16px;
+    }
+}
