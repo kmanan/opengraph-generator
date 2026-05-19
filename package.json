@@ -6,11 +6,11 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmanan/opengraph.git"
+    "url": "https://github.com/kmanan/opengraph-generator.git"
   },
   "homepage": "https://opengraph.krytonlabs.com",
   "bugs": {
-    "url": "https://github.com/kmanan/opengraph/issues"
+    "url": "https://github.com/kmanan/opengraph-generator/issues"
   },
   "main": "server.js",
   "workspaces": [
@@ -24,6 +24,8 @@
     "node": ">=18.17"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "adm-zip": "^0.5.17",
     "archiver": "^7.0.1",
     "axios": "^1.16.1",
     "cheerio": "^1.0.0-rc.12",
@@ -33,5 +35,8 @@
     "helmet": "^8.1.0",
     "multer": "^2.1.1",
     "sharp": "^0.34.5"
+  },
+  "bin": {
+    "opengraph-mcp": "./mcp/bin.js"
   }
 }

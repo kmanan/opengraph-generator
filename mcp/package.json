@@ -22,7 +22,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmanan/opengraph.git",
+    "url": "https://github.com/kmanan/opengraph-generator.git",
     "directory": "mcp"
   },
   "engines": {

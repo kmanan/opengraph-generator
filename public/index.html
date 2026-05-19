@@ -342,17 +342,7 @@
         <!-- Self-host + MCP install -->
         <div class="distribution-section">
             <h2 class="info-heading">Run this yourself or wire it into Claude Code</h2>
-            <p class="section-subtitle">Same code as this public instance. Three ways to get it.</p>
-
-            <div class="dist-card">
-                <h3 class="subheading">🤖 Use in Claude Code (MCP)</h3>
-                <p>One line, defaults to this hosted backend. Restart Claude Code after install.</p>
-                <div class="install-snippet-wrap">
-                    <button class="copy-snippet-btn" type="button" data-copy-snippet aria-label="Copy Claude Code MCP install command" title="Copy command"></button>
-                    <pre class="install-snippet"><code>claude mcp add opengraph -- npx -y @krytonlabs/opengraph-mcp</code></pre>
-                </div>
-            </div>
-
+            <p class="section-subtitle">Run the backend yourself, then connect Claude Code to your own instance.</p>
             <div class="dist-card">
                 <h3 class="subheading">🐳 Self-host with Docker</h3>
                 <p>Run your own instance. Edit env vars to taste — see <code>.env.example</code>.</p>
@@ -366,15 +356,16 @@
             </div>
 
             <div class="dist-card">
-                <h3 class="subheading">⚙️ Self-host both, MCP points at your backend</h3>
+                <h3 class="subheading">⚙️ Connect Claude Code to your backend</h3>
+                <p>Requires the Docker backend above. The MCP server refuses to run without <code>OPENGRAPH_BACKEND</code>.</p>
                 <div class="install-snippet-wrap">
                     <button class="copy-snippet-btn" type="button" data-copy-snippet aria-label="Copy self-hosted MCP command" title="Copy command"></button>
-                    <pre class="install-snippet"><code>claude mcp add -e OPENGRAPH_BACKEND=http://localhost:6736 \
-  opengraph -- npx -y @krytonlabs/opengraph-mcp</code></pre>
+                    <pre class="install-snippet"><code>claude mcp add --transport stdio -e OPENGRAPH_BACKEND=http://localhost:6736 \
+  opengraph -- npx -y --package github:kmanan/opengraph-generator opengraph-mcp</code></pre>
                 </div>
             </div>
 
-            <p class="repo-link"><a href="https://github.com/kmanan/opengraph" target="_blank" rel="noopener">View on GitHub →</a></p>
+            <p class="repo-link"><a href="https://github.com/kmanan/opengraph-generator" target="_blank" rel="noopener">View on GitHub →</a></p>
         </div>
     </div>
 

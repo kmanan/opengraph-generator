@@ -6,47 +6,37 @@ Self-hostable tool that turns a single image into the full set of OpenGraph + fa
 
 ---
 
-## Three ways to use it
+## Ways to use it
 
 ### 1. Use the hosted instance (zero setup)
 
 Visit https://opengraph.krytonlabs.com. Drop an image, get a ZIP. Done.
 
-### 2. Use it from Claude Code via MCP
-
-One line, then restart Claude Code:
+### 2. Self-host with Docker
 
 ```bash
-claude mcp add opengraph -- npx -y @krytonlabs/opengraph-mcp
-```
-
-Then in any project:
-
-> "Generate OG assets and favicons from `./assets/logo.png`, drop them in `./public`, and wire up the meta tags in `index.html`."
-
-Claude calls the MCP, the MCP calls the hosted backend, the assets land in your project. Defaults to the hosted backend; point it at your own self-hosted instance with:
-
-```bash
-claude mcp add -e OPENGRAPH_BACKEND=http://localhost:6736 \
-  opengraph -- npx -y @krytonlabs/opengraph-mcp
-```
-
-### 3. Self-host with Docker
-
-```bash
-git clone https://github.com/kmanan/opengraph
-cd opengraph
+git clone https://github.com/kmanan/opengraph-generator
+cd opengraph-generator
 cp .env.example .env       # edit if you want, defaults work
 docker compose up -d
 ```
 
 Running on `http://localhost:6736`. Or use Portainer — paste `docker-compose.yml` as a stack, fill env vars in the form, click deploy.
 
-### 3b. Self-host without Docker (bare Node)
+### 3. Connect Claude Code via MCP
 
 ```bash
-git clone https://github.com/kmanan/opengraph
-cd opengraph
+claude mcp add --transport stdio -e OPENGRAPH_BACKEND=http://localhost:6736 \
+  opengraph -- npx -y --package github:kmanan/opengraph-generator opengraph-mcp
+```
+
+Restart Claude Code. MCP writes generated files into the project path you give it and sends processing to your self-hosted backend.
+
+### 4. Self-host without Docker (bare Node)
+
+```bash
+git clone https://github.com/kmanan/opengraph-generator
+cd opengraph-generator
 npm ci                      # use `ci`, not `install` — honors the lockfile
 cp .env.example .env        # edit if you want
 npm start                   # or: pm2 start server.js --name opengraph

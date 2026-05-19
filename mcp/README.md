@@ -1,20 +1,12 @@
 # @krytonlabs/opengraph-mcp
 
-MCP server for the [OpenGraph Resizer](https://github.com/kmanan/opengraph) — generate OG/favicon/PWA asset bundles and analyze URLs from Claude Code, Cursor, or any MCP-compatible client.
+MCP server for the [OpenGraph Resizer](https://github.com/kmanan/opengraph-generator). It requires a self-hosted OpenGraph backend via `OPENGRAPH_BACKEND`.
 
 ## Install
 
 ```bash
-claude mcp add opengraph -- npx -y @krytonlabs/opengraph-mcp
-```
-
-Restart Claude Code. The MCP defaults to the hosted backend at `https://opengraph.krytonlabs.com`.
-
-## Self-hosted backend
-
-```bash
-claude mcp add -e OPENGRAPH_BACKEND=http://localhost:6736 \
-  opengraph -- npx -y @krytonlabs/opengraph-mcp
+claude mcp add --transport stdio -e OPENGRAPH_BACKEND=http://localhost:6736 \
+  opengraph -- npx -y --package github:kmanan/opengraph-generator opengraph-mcp
 ```
 
 ## Tools
